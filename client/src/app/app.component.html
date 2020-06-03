@@ -1,0 +1,19 @@
+
+<div *ngIf="!logged">
+  <app-login (loggedIn)="loggedInOut()"></app-login>
+</div>
+
+<div *ngIf="logged">
+
+  <app-sidebar (loggedOut)=loggedInOut()></app-sidebar>
+
+  <div class="content-container">
+
+    <div class="container-fluid">
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+
+</div>

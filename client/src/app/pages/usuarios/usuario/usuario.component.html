@@ -1,0 +1,81 @@
+<h1>Registrar Usuario <!--<small>{{producto.nombre}}</small>--></h1>
+<hr>
+
+<div class="row text-right">
+  <div class="col">
+    <button class="btn btn-danger" routerLink="/usuarios">
+      <i class="fa fa-arrow-left"></i>
+      Regresar
+    </button>
+  </div>
+</div>
+
+
+<div class="row animated fadeIn faster">
+
+  <div class="col">
+    <!-- FORMULARIO -------------------->
+
+    <form [formGroup]="form" (ngSubmit)="guardar()" novalidate="">
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">RUT</label>
+        <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="rut">
+            <div *ngIf="form.get('rut').errors?.required" class="form-control-feedback">
+              El rut es necesario
+            </div>
+            <!-- <div *ngIf="form.get('rut').errors?.pattern" class="form-control-feedback">
+              El rut debe tener la forma: 12345678-9
+            </div> -->
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">NOMBRE</label>
+        <div class="col-md-4">
+          <input class="form-control" type="text" formControlName="name">
+            <div *ngIf="form.get('name').errors?.required"
+                  class="form-control-feedback">
+                El nombre es necesario
+            </div>
+            <div *ngIf="form.get('name').errors?.minlength" 
+                  class="form-control-feedback">
+                Por lo menos 2 caracteres
+            </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">CONTRASEÑA</label>
+        <div class="col-md-4">
+          <input class="form-control" type="password" formControlName="password">
+            <div *ngIf="form.get('password').errors?.required" class="form-control-feedback">
+              La contraseña es necesaria
+            </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-2 col-form-label">ROL</label>
+        <div class="col-md-4">
+          <select class="form-control custom-select" formControlName="role">
+            <option value="ADMIN_ROLE">Administrador</option>
+            <option value="VENDEDOR_ROLE">Vendedor</option>
+            <option value="MECANICO_ROLE">Mecánico</option>
+          </select>
+            <div *ngIf="form.get('role').errors?.required" class="form-control-feedback">
+              El rol es necesario
+            </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+          <button type="submit" class="btn btn-outline-primary">
+            Registrar
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>

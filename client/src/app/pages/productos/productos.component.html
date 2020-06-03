@@ -1,0 +1,45 @@
+<h1>Listado de productos</h1>
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/producto/nuevo"
+            class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Agregar
+    </button>
+  </div>
+</div>
+
+<table class="table animated fadeIn faster">
+
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">ID</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let producto of productos; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>{{producto.nombre}}</td>
+      <td>{{producto.precio}}</td>
+      <td>{{producto._id}}</td>
+      <td>
+        <button class="btn btn-info mr-1"
+                [routerLink]="['/producto',producto._id]">
+          <i class="fa fa-pen"></i>
+        </button>
+        <button class="btn btn-danger"
+                (click)="eliminarProducto(producto, i)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,0 +1,39 @@
+.main-container{
+  background-image: url("../../../assets/img/home/vtb-home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+}
+
+.jumbotron{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.social-media-container{
+  position: relative;
+  display: inline-block;
+  margin-top: 40px;
+}
+
+a{
+  background-color: #1a1a1a;
+  padding: 10px 15px 10px 15px;
+  margin-right: 10px;
+  color: #fff;
+}
+
+a:hover{
+  color: #fff;
+  cursor: pointer;
+}
+
+.social-media-container a .fab {
+  margin-right: 10px;
+}
+
+
+
+
+
+
+

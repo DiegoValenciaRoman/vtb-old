@@ -1,0 +1,44 @@
+<h1>Usuarios</h1>
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/usuario/nuevo" class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Registrar usuario
+    </button>
+  </div>
+</div>
+
+<table class="table animated fadeIn faster mt-2">
+
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Rut</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Estado</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let usuario of usuarios; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>{{usuario.rut}}</td>
+      <td>{{usuario.name}}</td>
+      <td>{{usuario.role}}</td>
+      <td>{{usuario.status}}</td>
+      <td>
+        <button class="btn btn-info mr-1" [routerLink]="['/usuario',usuario._id]">
+          <i class="fa fa-pen"></i>
+        </button>
+        <button class="btn btn-danger" (click)="borrarUsuario(usuario, i)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

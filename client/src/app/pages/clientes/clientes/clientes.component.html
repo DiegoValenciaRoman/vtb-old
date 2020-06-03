@@ -1,0 +1,46 @@
+<h1>Clientes</h1>
+
+<hr>
+
+<div class="row">
+  <div class="col text-right">
+    <button routerLink="/cliente/registrar" class="btn btn-primary">
+      <i class="fa fa-plus"></i>
+      Registrar cliente
+    </button>
+  </div>
+</div>
+
+<table class="table animated fadeIn faster mt-2">
+
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Rut</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Nro contacto</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let cliente of clientes; let i=index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>{{cliente.rut}}</td>
+      <td>{{cliente.nombre}} {{cliente.apellido}}</td>
+      <td>{{cliente.nroContacto}}</td>
+      <td>
+        <button class="btn btn-primary mr-1" [routerLink]="['/cliente','ver',cliente._id]">
+          <i class="fa fa-eye"></i>
+        </button>
+        <button class="btn btn-info mr-1" [routerLink]="['/cliente','actualizar',cliente._id]">
+          <i class="fa fa-pen"></i>
+        </button>
+         <button class="btn btn-danger" (click)="borrarCliente(cliente._id,i)">
+          <i class="fa fa-trash"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

@@ -1,0 +1,78 @@
+<!-- <main>
+  <div id="login">
+    <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+        <div id="login-column" class="col-md-6">
+          <div id="login-box" class="col-md-12">
+            <form id="login-form" [formGroup]="form" (ngSubmit)="login()" novalidate="">
+              <h1 class="text-center text">VTB</h1><br>
+              <h3 class="text-center text">Iniciar sesión</h3>
+              <div class="form-group">
+                <label class="text">RUT: </label>
+                <input class="form-control" type="text" placeholder="Ingrese rut" formControlName="rut">
+              </div>
+              <div class="form-group">
+                <label class="text">CONTRASEÑA: </label>
+                <input class="form-control" type="password" placeholder="Ingrese contraseña" formControlName="password">
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <button type="submit" class="btn btn-outline-secondary active">
+                    Iniciar sesión
+                  </button>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main> -->
+
+
+<div class="main">
+
+  <div class="container">
+      <div class="middle">
+        <div id="login">
+
+          <form id="login-form" [formGroup]="form" (ngSubmit)="login()" novalidate="">
+            <p class="form-group">
+              <span class="fa fa-user"></span>
+              <input class="form-control" type="text" placeholder="RUT" formControlName="rut" id=#valueRut>
+              <span *ngIf="alertRut"><i class="fas fa-exclamation-triangle"></i> {{messageAlertRut}}</span>
+            </p>
+            <p class="form-group">
+              <span class="fa fa-lock"></span>
+              <input class="form-control" type="password" placeholder="CONTRASEÑA" formControlName="password">
+              <span *ngIf="alertPassword"><i class="fas fa-exclamation-triangle"></i> Por favor, ingrese la contraseña </span>
+            </p>
+            <p class="form-group">
+              <!-- <span style="width:48%; text-align:left;  display: inline-block;"><a class="small-text" href="#">Forgot
+                                password?</a></span> -->
+              <span class="input-group" style="width:50%; text-align:right;  display: inline-block;">
+              <input type="submit" value="INICIAR SESIÓN"></span>
+            </p>
+            <p *ngIf="authError && form.pristine" class="alert alert-danger" role="alert">
+              RUT o Contraseña incorrecto/s
+            </p>
+          </form>
+
+        </div> <!-- end login -->
+        <div class="logo">VTB
+
+          <div class="clearfix"></div>
+        </div>
+
+      </div>
+  </div>
+
+
+</div>
+
+
+
+
