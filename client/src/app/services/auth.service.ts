@@ -15,6 +15,7 @@ export class AuthService {
 
   private URL_API = 'http://localhost:3000/api'
   private token: string;
+  private role: string;
 
   constructor( private http: HttpClient) { }
 
@@ -29,7 +30,6 @@ export class AuthService {
     }
     return this.token;
   }
-
   //========== AUTH ==============//
   login(usuario: TokenPayload) {
     let reqBase = this.http.post(`${this.URL_API}/usuarios/login`, usuario);

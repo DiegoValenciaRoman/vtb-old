@@ -9,29 +9,29 @@
       </a>
     </li>
     <li class="header">ACCION</li>
-    <li>
+    <li *ngIf="displayNavSection('venta')">
       <a>
-        <i class="fa fa-shopping-cart" aria-hidden="true"></i>Venta
+        <i class="fa fa-shopping-cart" aria-hidden="true" ></i>Venta
       </a>
     </li>
-    <li>
+    <li *ngIf="displayNavSection('servicioMecanico')"> 
       <a>
         <i class="fa fa-wrench" aria-hidden="true"></i>Servicio Mecánico
       </a>
     </li>
     <li class="header">ADMINISTRACIÓN</li>
-    <li>
+    <li *ngIf="displayNavSection('almacenamiento')">
       <a>
         <i class="fa fa-box-open" aria-hidden="true"></i> Almacenamiento
       </a>
     </li>
-    <li>
+    <li *ngIf="displayNavSection('clientes')">
       <a routerLink="/clientes">
         <i class="fa fa-user-tag" aria-hidden="true"></i> Clientes
       </a>
     </li>
     <li class="header">SISTEMA</li>
-    <li>
+    <li *ngIf="displayNavSection('usuarios')">
       <a routerLink="/usuarios">
         <i class="fa fa-users" aria-hidden="true"></i> Usuarios
       </a>

@@ -12,18 +12,18 @@ import { ClientesComponent } from './pages/clientes/clientes/clientes.component'
 import { ClienteComponent } from "./pages/clientes/cliente/cliente.component";
 
 // GUARD
-
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'usuarios', component: UsuariosComponent },//, canActivate:[AuthGuard] },
-  { path: 'usuario/:_id', component: UsuarioComponent },// canActivate: [AuthGuard] },
-  { path: 'clientes', component: ClientesComponent },// canActivate: [AuthGuard] },
-  { path: 'cliente/:accion', component: ClienteComponent }, //canActivate: [AuthGuard] },
-  { path: 'cliente/:accion/:_id', component: ClienteComponent }, //canActivate: [AuthGuard] },
-  { path: 'productos', component: ProductosComponent }, //canActivate: [AuthGuard] },
-  { path: 'producto/:_id', component: ProductoComponent }, //canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canLoad:[AuthGuard]},
+  { path: 'usuarios', component: UsuariosComponent, canActivate:[AuthGuard] },
+  { path: 'usuario/:_id', component: UsuarioComponent, canActivate: [AuthGuard] },
+  { path: 'clientes', component: ClientesComponent, canActivate: [AuthGuard] },
+  { path: 'cliente/:accion', component: ClienteComponent, canActivate: [AuthGuard] },
+  { path: 'cliente/:accion/:_id', component: ClienteComponent, canActivate: [AuthGuard] },
+  { path: 'productos', component: ProductosComponent, canActivate: [AuthGuard] },
+  { path: 'producto/:_id', component: ProductoComponent, canActivate: [AuthGuard] },
 
   { path: '**', pathMatch: 'full', redirectTo: '/home'}
 ];
