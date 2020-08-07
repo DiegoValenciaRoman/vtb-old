@@ -13,7 +13,8 @@ let getProductos = function (err, res) {
         return res.status(500).json({
           ok: false,
           err: {
-            message: 'Error al obtener los productos desde la base de datos'
+            message: 'Error al obtener los productos desde la base de datos',
+            err:err
           }
         });
       }
@@ -44,7 +45,7 @@ let getProducto = function (req, res){
       if (err) {
         return res.status(500).json({
           ok: false,
-          err
+          err:err
         });
       }
 
@@ -75,7 +76,7 @@ let actualizarProducto = function (req, res) {
     if (err) {
       return res.status(500).json({
         ok: false,
-        err
+        err:err
       });
     }
   
@@ -96,7 +97,7 @@ let actualizarProducto = function (req, res) {
       if (err) {
         return res.status(500).json({
           ok: false,
-          err
+          err:err
         });
       }
   
@@ -127,7 +128,8 @@ let crearProducto = function (req, res) {
       return res.status(500).json({
         ok: false,
         err:{
-          message: 'Error al guardar el producto'
+          message: 'Error al guardar el producto',
+          err:err
         }
       });
     }
@@ -159,7 +161,7 @@ let eliminarProducto = function (req, res) {
     if (err) {
       return res.status(500).json({
         ok: false,
-        err
+        err:err
       });
     }
 
